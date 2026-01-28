@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets"
+import sur_scene_1 from "../assets/images/sur_scene_1.jpg"
+import sur_scene_2 from "../assets/images/sur_scene_2.png"
+import sur_scene_3 from "../assets/images/sur_scene_3.jpg"
+
+---
+
+
+<section
+  id="sur_scene"
+  class="w-full h-full flex flex-col justify-start gap-5 md:gap-20 md:p-5"
+>
+  <h2 class=" text-3xl md:text-5xl text-center text-fuchsia-800">Sur scène</h2>
+  <div class="flex flex-row md:flex-col w-full md:gap-10">
+  <div class="flex flex-col md:flex-row justify-start md:justify-around w-1/2 md:w-auto gap-14 md:gap-0 p-2 md:p-0">
+    <div class="flex flex-col w-full md:w-1/4 justify-around md:gap-12">
+      <Image
+        src={sur_scene_1}
+        alt="margaux Kadi sur scène en cabaret"
+        class="rounded-4xl -rotate-12 object-cover"
+      />
+    
+    </div>
+    <div class="flex flex-col w-full md:w-1/4 justify-around md:gap-12">
+      <Image
+        src={sur_scene_2}
+        width={500}
+        height={500}
+        alt="margaux Kadi sur scène en comédie musicale"
+        class="rounded-4xl object-cover"
+      />
+    
+    </div>
+    <div class="flex flex-col w-full md:w-1/4 justify-around md:gap-12">
+      <Image
+        src={sur_scene_3}
+        alt="margaux Kadi avec son trio les Popsicle Sisters"
+        class="rounded-4xl rotate-12 object-cover"
+      />
+
+    </div>
+</div>
+
+
+<div class="flex flex-col md:flex-row justify-around w-1/2 md:w-full">
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-fuchsia-800 md:text-3xl">Cabaret & Événementiel</h2>
+		<p class="md:text-2xl">Heping people cultivate balance through mindfulness and movement.</p>
+	</div>
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-fuchsia-800 md:text-3xl">Comédie musicale</h2>
+		<p class="md:text-2xl">Built programs that reduced burnout and boosted calm.</p>
+	</div>
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-fuchsia-800 md:text-3xl">Chant polyphonique</h2>
+		<p class="md:text-2xl">A gentle, structured approach now used in multiple communities.</p>	
+	</div>
+</div>
+</div>
+</section>
