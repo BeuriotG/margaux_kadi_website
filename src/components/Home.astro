@@ -8,7 +8,7 @@ import NavLinks from "./navlinks.astro";
 
 ---
 
-<section class="h-full w-full p-5 flex flex-col justify-start gap-5 md:gap-2">
+<section class="flex flex-col justify-start gap-5 md:gap-2 h-full w-full p-5">
   <header class="md:flex md:justify-evenly items-center h-1/5 ">
     <NavLinks title="Qui je suis" link="#qui_je_suis"/>
     <NavLinks title="Les cours de chant" link="#les_cours_de_chant"/>
@@ -38,31 +38,19 @@ import NavLinks from "./navlinks.astro";
     </div>
   </header>
 
-  <article class="flex flex-col md:flex-row md:justify-center p-5 h-full ">
-    <Image src={portrait} alt="Portrait de Margaux Kadi" class="rounded-4xl object-cover" />
+  <article class="flex flex-col md:flex-row md:justify-center h-full p-5">
+    <Image src={portrait} alt="Portrait de Margaux Kadi" class="img-rounded" />
 
-    <div class="h-full w-full md:w-2xl p-3 flex flex-col justify-center">
-      <h3 class="capitalize text-4xl md:text-6xl text-end font-bold shadowy_red">
-        <i>MargauxKadi</i>
+    <div class="flex flex-col justify-center h-full w-full md:w-2xl p-3 ">
+      <h3 class="capitalize text-home-page text-outline-red">
+        <i>Margaux Kadi</i>
       </h3>
-      <h3 class="uppercase text-4xl md:text-6xl text-end font-bold shadowy_pink" >
+      <h3 class="uppercase text-home-page text-outline-pink" >
         Coach vocale & professeure de technique vocale
       </h3>
     </div>
   </article>
 </section>
-
-<style>
-  .shadowy_red {
-    color: transparent;
-    -webkit-text-stroke: 2px red;
-  }
-  .shadowy_pink {
-    color: rgb(177, 116, 180);
-    -webkit-text-stroke: 3px rgb(125, 77, 128);
-  }
-  
-</style>
 
 
 
