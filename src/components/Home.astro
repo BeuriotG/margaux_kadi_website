@@ -1,15 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import portrait from '../assets/images/Margaux_Kadi_portrait.jpg'
+import portrait from "../assets/images/Margaux_Kadi_portrait.jpg"
 import facebook from "../assets/icons/Facebook_Logo_Primary.png"
 import instagram from "../assets/icons/Instagram_Glyph_Gradient.png"
-
+import logo from "../assets/icons/Site Web Logo.png"
+import TCM from "../assets/icons/TCM.jpg"
 import NavLinks from "./navlinks.astro";
 
 ---
 
-<section class="flex flex-col justify-start gap-5 md:gap-2 h-full w-full p-5">
-  <header class="md:flex md:justify-evenly items-center h-1/5 ">
+<section class="flex flex-col justify-start gap-0 md:gap-2 h-full w-full p-5">
+  <header class="flex justify-center md:justify-evenly items-center h-1/5 ">
+    <Image src={logo} alt="Logo signature Margaux Kadi" class="h-auto w-42 md:h-auto md:w-80"/>
     <NavLinks title="Qui je suis" link="#qui_je_suis"/>
     <NavLinks title="Les cours de chant" link="#les_cours_de_chant"/>
     <NavLinks title="Sur scène" link="#sur_scene"/>
@@ -38,16 +40,17 @@ import NavLinks from "./navlinks.astro";
     </div>
   </header>
 
-  <article class="flex flex-col md:flex-row md:justify-center h-full p-5">
-    <Image src={portrait} alt="Portrait de Margaux Kadi" class="img-rounded" />
+  <article class="flex flex-col md:flex-row md:justify-center items-center h-full md:p-5">
+    <Image src={portrait} alt="Portrait de Margaux Kadi" class="img-rounded h-auto w-xl" />
 
-    <div class="flex flex-col justify-center h-full w-full md:w-2xl p-3 ">
+    <div class="flex flex-col justify-center items-end relative h-full w-full md:w-2xl p-3">
       <h3 class="capitalize text-home-page text-outline-red">
         <i>Margaux Kadi</i>
       </h3>
       <h3 class="uppercase text-home-page text-outline-pink" >
         Coach vocale & professeure de technique vocale
       </h3>
+      <Image src={TCM} alt={"Certification professionnelle Le Chanteur Moderne"} class="h-auto w-52 md:h-auto md:w-96 md:absolute md:bottom-0 md:right-0"/>
     </div>
   </article>
 </section>

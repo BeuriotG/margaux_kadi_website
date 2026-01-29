@@ -16,8 +16,8 @@ import mic from "../assets/images/mic.png"
       alt="Image stylisé d'un microphone"
       class="object-cover"
     />
-    <div class="flex justify-center items-center border-2 border-red-primary  ovale">
-      <p class="text-center text-red-primary"><i>["témoignages d'élèves"]</i></p>
+    <div class="flex justify-center items-center border-2 border-red-primary ovale">
+      <p class="text-lg md:text-base text-center text-red-primary"><i>["témoignages d'élèves"]</i></p>
     </div>
   </div>
 </section>
@@ -29,6 +29,16 @@ import mic from "../assets/images/mic.png"
     -webkit-border-radius: 240px / 150px;
     -moz-border-radius: 240px / 150px;
     border-radius: 240px / 150px;
+  }
+
+  @media (width <= 600px) {
+    .ovale {
+      width: 16rem;
+      height: 10.7rem;
+      -webkit-border-radius: 8rem / 5.4rem;
+      -moz-border-radius: 8rem / 5.4rem;
+       border-radius: 8rem / 5.4rem;
+    }
   }
 </style>
 <!-- <a href="https://www.flaticon.com/free-icons/mic" title="mic icons">Mic icons created by Icongeek26 - Flaticon</a> -->

@@ -1,12 +1,14 @@
-<section class="flex flex-col justify-start items-center gap-10 md:gap-32 w-full h-full p-5 bg-pink-tertiary text-beige-secondary">
+---
+import { Image } from "astro:assets";
+import TCM_logo from "../assets/icons/TCM.jpg"
+---
+
+<section class="flex flex-col justify-center md:justify-start items-center gap-10 md:gap-32 w-full h-full p-5 bg-pink-tertiary text-beige-secondary">
 	<h2 class="text-3xl md:text-8xl">La TCM</h2>
 	
-	<div class="flex flex-col justify-around md:justify-center md:w-1/4 md:h-1/5 rounded-4xl text-center bg-white text-black">
-		<a href="https://www.chanteurmoderne.com/" class="w-full h-full" target="_blank">
-		<h3 class="md:text-2xl">Le chanteur moderne</h3>
-		<p class="uppercase ">Professeur certifié</p>
-		</a>
-	</div>
+	<a href="https://www.chanteurmoderne.com/" class="md:w-1/4 md:h-1/5" target="_blank">
+		<Image src={TCM_logo} alt="Certification professionnelle Le Chanteur Moderne" class="img-rounded"/>
+	</a>
 	<div class="flex flex-col gap-5 md:w-1/4 text-center ">
 		<p class="text-2xl">"Jia Mari’s presence alone slows you down—in the best way. Her sessions helped me rebuild my sense of calm."</p>
 		<p class="text-2xl">Alec R., 
