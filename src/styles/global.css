@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+@theme {
+
+--color-pink-primary:#b174b4;
+--color-pink-secondary: #7d3473;
+--color-pink-tertiary:#601956;
+--color-brown-primary:#544135;
+--color-red-primary:#be3519;
+--color-red-secondary: #992328;
+--color-beige-primary:#f9fdeb;
+--color-beige-secondary:#faffe5;
+--color-beige-tertiary:#f8f1d3;
+
+}
+
+@layer components {
+    
+    /* Global to the wesite */
+    .img-rounded {
+        @apply rounded-4xl object-contain
+    }
+
+    /* Home component */
+    .nav-links  {
+        @apply uppercase hidden md:inline md:w-45 p-2 text-center shrink-0 text-pink-secondary md:border-t-2 md:border-b-2; 
+    }
+
+    .text-outline-red {
+        color: var(--color-beige-primary);
+        -webkit-text-stroke: 2px var(--color-red-primary);
+    }
+
+    .text-home-page {
+        @apply text-2xl md:text-6xl text-end font-bold;
+    }
+
+    .text-outline-pink {
+        color: var(--color-pink-primary);
+        -webkit-text-stroke: 2px var(--color-pink-secondary);
+    }
+
+
+    /* Contact component */
+
+    .input-form {
+       @apply border-2 border-pink-secondary w-full h-16 p-2 rounded-md;
+    }
+
+    .text-area-form {
+        @apply border-2 border-pink-secondary w-full p-2 grow rounded-md;
+    }
+
+    .submit-button {
+        @apply bg-pink-secondary text-white text-2xl w-full h-16 rounded-md hover:cursor-pointer;
+    }
+
+
+    /* WhoAmI component */
+    .sub-title-whoami {
+        @apply text-3xl md:text-4xl lg:text-5xl text-pink-secondary;
+    }
+
+    .p-whoami {
+        @apply md:text-xl lg:text-2xl text-brown-primary;
+    }
+}

@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets"
+import sur_scene_1 from "../assets/images/sur_scene_1.jpg"
+import sur_scene_2 from "../assets/images/sur_scene_2.png"
+import sur_scene_3 from "../assets/images/sur_scene_3.jpg"
+
+---
+
+
+<section
+  id="sur_scene"
+  class="flex flex-col justify-start gap-5 md:gap-20 w-full min-h-screen p-5 bg-beige-secondary"
+>
+  <h2 class="text-center text-3xl md:text-5xl text-pink-secondary">Sur scène</h2>
+  <div class="flex flex-row md:flex-col md:gap-10 w-full p-5 md:p-0">
+  <div class="flex flex-col md:flex-row justify-start md:justify-around gap-14 md:gap-0 w-1/2 md:w-auto p-2 md:p-0">
+    <div class="flex flex-col justify-around md:gap-12 w-full md:w-1/4 ">
+      <Image
+        src={sur_scene_1}
+        alt="margaux Kadi sur scène en cabaret"
+        class="img-rounded -rotate-12 h-auto w-full max-w-56 md:max-w-72 lg:max-w-80"
+      />
+    
+    </div>
+    <div class="flex flex-col justify-around md:gap-12 w-full md:w-1/4">
+      <Image
+        src={sur_scene_2}
+        width={500}
+        height={500}
+        alt="margaux Kadi sur scène en comédie musicale"
+        class="img-rounded h-auto w-full max-w-56 md:max-w-72 lg:max-w-80"
+      />
+    
+    </div>
+    <div class="flex flex-col justify-around md:gap-12 w-full md:w-1/4">
+      <Image
+        src={sur_scene_3}
+        alt="margaux Kadi avec son trio les Popsicle Sisters"
+        class="img-rounded rotate-12 h-auto w-full max-w-56 md:max-w-72 lg:max-w-80"
+      />
+
+    </div>
+</div>
+
+
+<div class="flex flex-col md:flex-row justify-around w-1/2 md:w-full">
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-xl md:text-3xl text-pink-secondary">Cabaret & Événementiel</h2>
+		<p class="md:text-2xl">Heping people cultivate balance through mindfulness and movement.</p>
+	</div>
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-xl md:text-3xl text-pink-secondary">Comédie musicale</h2>
+		<p class="md:text-2xl">Built programs that reduced burnout and boosted calm.</p>
+	</div>
+	<div class="flex flex-col md:w-1/4 text-center">
+		<h2 class="text-xl md:text-3xl text-pink-secondary">Chant polyphonique</h2>
+		<p class="md:text-2xl">A gentle, structured approach now used in multiple communities.</p>	
+	</div>
+</div>
+</div>
+</section>

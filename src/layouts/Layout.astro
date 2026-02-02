@@ -3,14 +3,57 @@ import '../styles/global.css'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi."/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content="Site officiel de Margaux Kadi, professeure de technique vocale.">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="Margaux Kadi" >
+		<meta property="og:locale" content="fr_FR">
+		<meta property="og:description" content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi. Elle permet aux professionnels de la voix de s'améliorer et maîtriser au mieux leur appareil de travail.">
 		<title>Margaux Kadi</title>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Margaux Kadi",
+			"givenName": "Margaux",
+			"familyName": "Kadi",
+			"jobTitle": "Coach vocale et professeure de technique vocale",
+			"image": "/images/Margaux_Kadi_portrait.jpg",
+			"sameAs": [
+			  "https://www.instagram.com/margauxkadilaurenson/"
+			],
+			"email": "margaux.kadi@gmail.com",
+			"makesOffer": [
+			  {
+				"@type": "Offer",
+				"itemOffered": {
+				  "@type": "Service",
+				  "name": "Cours particuliers de chant",
+				  "description": "Cours individuels de technique vocale"
+				}
+			  },
+			  {
+				"@type": "Offer",
+				"itemOffered": {
+				  "@type": "Service",
+				  "name": "Cours collectifs de chant"
+				}
+			  },
+			  {
+				"@type": "Offer",
+				"itemOffered": {
+				  "@type": "Service",
+				  "name": "Ateliers vocaux"
+				}
+			  }
+			]
+		  })} />
 	</head>
 	<body>
 		<slot />

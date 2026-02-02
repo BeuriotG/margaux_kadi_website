@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import black_and_white from "../assets/images/Margaux_Kadi_black_and_white.jpg"
+
+---
+
+<section
+  id="qui_je_suis"
+  class="flex flex-col justify-start md:justify-around items-center gap-5 md:gap-0 w-full min-h-screen p-5"
+>
+  <h2 class="text-4xl md:text-6xl text-pink-secondary">Qui je suis</h2>
+  <article class="flex flex-col md:flex-row items-center justify-around gap-10 md:gap-0 max-h-full">
+    <Image
+      src={black_and_white}
+      alt="Margaux Kadi en tenue année 80, image en noir et blanc"
+      class="img-rounded h-auto w-full max-w-56 md:max-w-80 lg:max-w-1/3"
+    />
+    <div class="flex flex-col justify-around p-10 md:p-2 gap-10 md:gap-0 md:max-w-1/3 text-center">
+      <div>
+      <h3 class="sub-title-whoami">Chanteuse</h3>
+      <p class="p-whoami">
+        Today, I guide others in using creativity as a pathway to
+        self-connection, supporting them in finding calm, confidence, and their
+        own authentic voice.
+      </p>
+    </div>
+    <div>
+      <h3 class="sub-title-whoami">Comédienne</h3>
+      <p class="p-whoami">
+        Today, I guide others in using creativity as a pathway to
+        self-connection.
+      </p>
+    </div>
+    <div>
+      <h3 class="sub-title-whoami">Professeure de chant</h3>
+      <p class="p-whoami">
+        Today, I guide others in using creativity as a pathway to
+        self-connection.
+      </p>
+    </div>
+    </div>
+  </article>
+</section>

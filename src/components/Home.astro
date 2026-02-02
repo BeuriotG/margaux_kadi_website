@@ -1,249 +1,62 @@
-<section class="h-full w-full p-5 flex flex-col justify-start gap-5">
-  <header class="flex justify-evenly items-center h-1/5">
-    <h2
-      class="uppercase w-45 p-2 text-center text-purple-600 border-t-2 border-b-2"
-    >
-      <a href="#qui_je_suis">Qui je suis</a>
-    </h2>
-    <h2
-      class="uppercase w-45 p-2 text-center text-purple-600 border-t-2 border-b-2"
-    >
-      <a href="#les_cours_de_chant">Les cours de chant</a>
-    </h2>
-    <h2
-      class="uppercase w-45 p-2 text-center text-purple-600 border-t-2 border-b-2"
-    >
-      <a href="#sur_scene">Sur scène</a>
-    </h2>
-    <h2
-      class="uppercase w-45 p-2 text-center text-purple-600 border-t-2 border-b-2"
-    >
-      <a href="#contact">Contact</a>
-    </h2>
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/images/Margaux_Kadi_portrait.jpg"
+import facebook from "../assets/icons/Facebook_Logo_Primary.png"
+import instagram from "../assets/icons/Instagram_Glyph_Gradient.png"
+import logo from "../assets/icons/Site Web Logo.png"
+import TCM from "../assets/icons/TCM.jpg"
+import NavLinks from "./navlinks.astro";
+
+---
+
+<section class="flex flex-col justify-start gap-0 md:gap-2 min-h-screen w-full mx-auto p-5 relative">
+  <header class="flex justify-center md:justify-evenly items-center h-1/5 ">
+    <Image src={logo}  alt="Logo signature Margaux Kadi" class="h-auto w-full max-w-52 md:max-w-64"/>
+    <NavLinks title="Qui je suis" link="#qui_je_suis"/>
+    <NavLinks title="Les cours de chant" link="#les_cours_de_chant"/>
+    <NavLinks title="Sur scène" link="#sur_scene"/>
+    <NavLinks title="Contact" link="#contact"/>
+    
+    
     <div class="flex justify-center items-start gap-3">
-      <a href=""
-        ><img
-          src="/src/assets/Instagram_Glyph_Gradient.png"
-          width="50rem"
+      <a href="https://www.instagram.com/margauxkadilaurenson/?hl=fr"
+      target="_blank"
+        ><Image
+          src={instagram}
+          width={60}
+          height={60}
           alt="logo instagram"
         /></a
       >
       <a href=""
-        ><img
-          src="/src/assets/Facebook_Logo_Primary.png"
-          width="50rem"
+      target="_blank"
+        ><Image
+          src={facebook}
+          width={60}
+          height={60}
           alt="logo facebook"
         /></a
       >
     </div>
   </header>
 
-  <article class="flex justify-end h-full">
-    <img
-      src="images/Margaux_Kadi_portrait.jpg"
-      alt="Portrait de Margaux Kadi"
-      class="w-2xl h-11/12 rounded-4xl"
-    />
-    <div class="h-full w-2xl p-3 flex flex-col justify-center">
-      <h3 class="capitalize text-6xl text-end font-bold shadowy_red">
+  <article class="flex flex-col md:flex-row md:justify-end items-center gap-2 h-full md:p-5">
+    <Image src={portrait} alt="Portrait de Margaux Kadi" class="img-rounded h-auto max-w-1/2 md:max-w-1/3 m-auto"/>
+
+    <div class="flex flex-col justify-center items-end h-full w-full md:h-auto md:w-2xl m-auto me-2 p-3 z-10">
+      <h3 class="capitalize text-home-page text-outline-red">
         <i>Margaux Kadi</i>
       </h3>
-      <h3 class="uppercase text-6xl text-end font-bold shadowy_pink">
+      <h3 class="uppercase text-home-page text-outline-pink" >
         Coach vocale & professeure de technique vocale
       </h3>
     </div>
   </article>
+  <Image src={TCM} alt={"Certification professionnelle Le Chanteur Moderne"} class="mx-auto h-auto max-w-1/2 md:h-auto md:w-1/3 md:absolute md:bottom-1 md:right-1 z-0"/>
 </section>
 
-<style>
-  .shadowy_red {
-    color: transparent;
-    -webkit-text-stroke: 2px red;
-  }
-  .shadowy_pink {
-    color: rgb(177, 116, 180);
-    -webkit-text-stroke: 3px rgb(125, 77, 128);
-  }
-</style>
-
-<section
-  class="w-full h-full pt-24 text-6xl bg-amber-100 flex flex-col items-center justify-start gap-12"
->
-  <h2 class="capitalize text-red-600">Témoignages</h2>
-  <div class="flex flex-col items-center w-xl">
-    <img
-      src="/images/mic.png"
-      alt="Image stylisé d'un microphone"
-      class="h-60 w-60 aspect-square"
-    />
-    <div class="border-2 border-red-600 flex justify-center items-center ovale">
-      <p class="text-center text-red-600"><i>["témoignages d'élèves"]</i></p>
-    </div>
-  </div>
-</section>
-
-<style>
-  .ovale {
-    width: 480px;
-    height: 300px;
-    -webkit-border-radius: 240px / 150px;
-    -moz-border-radius: 240px / 150px;
-    border-radius: 240px / 150px;
-  }
-</style>
-<!-- <a href="https://www.flaticon.com/free-icons/mic" title="mic icons">Mic icons created by Icongeek26 - Flaticon</a> -->
-
-<section
-  id="qui_je_suis"
-  class="w-full h-full p-5 flex flex-col justify-around items-center"
->
-  <h2 class="text-6xl text-fuchsia-800">Qui je suis</h2>
-  <article class="flex justify-around">
-    <img
-      src="images/Margaux_Kadi_black_and_white.jpg"
-      alt="Margaux Kadi en tenue année 80, image en noir et blanc"
-      class="w-1/3 rounded-4xl"
-    />
-    <div class="w-1/3 text-center flex flex-col justify-around p-5">
-      <h3 class="text-fuchsia-800 text-5xl">Chanteuse</h3>
-      <p class="text-2xl">
-        Today, I guide others in using creativity as a pathway to
-        self-connection, supporting them in finding calm, confidence, and their
-        own authentic voice.
-      </p>
-      <h3 class="text-fuchsia-800 text-5xl">Comédienne</h3>
-      <p class="text-2xl">
-        Today, I guide others in using creativity as a pathway to
-        self-connection.
-      </p>
-      <h3 class="text-fuchsia-800 text-5xl">Professeure de chant</h3>
-      <p class="text-2xl">
-        Today, I guide others in using creativity as a pathway to
-        self-connection.
-      </p>
-    </div>
-  </article>
-</section>
-
-<style></style>
-
-<section
-  id="les_cours_de_chant"
-  class="w-full h-full p-5 bg-red-600 text-white flex flex-col justify-around"
->
-  <h2 class="text-8xl text-end me-6">Les cours de chant</h2>
-  <div class="flex justify-around">
-    <img
-      src="images/Les_cours_de_chant.jpg"
-      alt="Margaux enseigne des cours de chant à l'aide d'un piano"
-      class="w-2/5 rounded-4xl"
-    />
-    <div class="w-2/4 flex flex-col justify-around p-5">
-      <h3 class="text-5xl">Cours particuliers</h3>
-      <p class="text-2xl">
-        Practical, grounding tools to help you stay centered in daily life.
-      </p>
-      <hr />
-      <h3 class="text-5xl">Cours collectifs</h3>
-      <p class="text-2xl">
-        Slow, intentional practices that stregthen both body and mind.
-      </p>
-      <hr />
-      <h3 class="text-5xl">Ateliers</h3>
-      <p class="text-2xl">
-        Calm, clear frameworks that help teams thrive sustainably.
-      </p>
-      <hr />
-    </div>
-  </div>
-</section>
-
-<section
-  id="sur_scene"
-  class="w-full h-full flex flex-col justify-start gap-20 p-5"
->
-  <h2 class="text-5xl text-center text-fuchsia-800">Sur scène</h2>
-  <div class="flex justify-around">
-    <div class="flex flex-col w-1/4 justify-around gap-12">
-      <img
-        src="/images/sur_scene_1.jpg"
-        alt="margaux Kadi sur scène en cabaret"
-        class="rounded-4xl -rotate-12"
-      />
-    
-    </div>
-    <div class="flex flex-col w-1/4 justify-around h-full gap-12">
-      <img
-        src="/images/sur_scene_2.png"
-        alt="margaux Kadi sur scène en comédie musicale"
-        class="rounded-4xl"
-      />
-    
-    </div>
-    <div class="flex flex-col w-1/4 justify-around h-full gap-12">
-      <img
-        src="/images/sur_scene_3.jpg"
-        alt="margaux Kadi avec son trio les Popsicle Sisters"
-        class="rounded-4xl rotate-12"
-      />
-
-    </div>
-</div>
 
 
-    <div class="flex justify-around">
-	<div class="flex flex-col w-1/4 text-center">
-		<h2 class="text-fuchsia-800 text-3xl">Cabaret & Événementiel</h2>
-		<p class="text-2xl">Heping people cultivate balance through mindfulness and movement.</p>
-	</div>
-	<div class="flex flex-col w-1/4 text-center">
-		<h2 class="text-fuchsia-800 text-3xl">Comédie musicale</h2>
-		<p class="text-2xl">Built programs that reduced burnout and boosted calm.</p>
-	</div>
-	<div class="flex flex-col w-1/4 text-center">
-		<h2 class="text-fuchsia-800 text-3xl">Chant polyphonique</h2>
-		<p class="text-2xl">A gentle, structured approach now used in multiple communities.</p>	
-	</div>
-	</div>
-</section>
 
-<section class="w-full h-full p-5 flex flex-col justify-start items-center gap-32 bg-fuchsia-800 text-white">
-	<h2 class="text-8xl">La TCM</h2>
-	
-	<div class="flex flex-col justify-center text-center bg-white text-black rounded-4xl w-1/4 h-1/5">
-		<a href="https://www.chanteurmoderne.com/" class="w-full h-full" target="_blank">
-		<h3 class="text-2xl">Le chanteur moderne</h3>
-		<p class="uppercase ">Professeur certifié</p>
-		</a>
-	</div>
-	<div class="flex flex-col w-1/4 text-center gap-5">
-		<p class="text-2xl">"Jia Mari’s presence alone slows you down—in the best way. Her sessions helped me rebuild my sense of calm."</p>
-		<p class="text-2xl">Alec R., 
-			Program Participant</p>
-	</div>
-</section>
 
-<section class="h-10/12 w-full p-20 bg-amber-100 ">
-	<div class="h-full flex justify-around items-center">
-		<div class="h-full w-2/5 flex flex-col flex-start gap-10 p-10">
-			<h2 class="text-8xl text-fuchsia-800 text-start">Contact</h2>
-			<p class="text-center text-3xl"><i>Prise de rendez-vous/ Inscription Ateliers/ Devis/ Renseignements</i></p>
-		</div>
-		<div class="w-3/5 h-full">
-		<form action="post" class="h-12/12 w-full p-5 bg-white border-2 border-fuchsia-800 rounded-md">
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" class="border-2 border-fuchsia-800 w-full h-16 rounded-md mb-5">
-			<label for="email" class="h-16 w-1/3 mt-5">Email</label>
-			<input type="email" name="email" id="email" class="border-2 border-fuchsia-800 w-full h-16 rounded-md mb-5">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" class="border-2 border-fuchsia-800 w-full h-48 rounded-md mb-5"></textarea>
-			<button type="submit" class="bg-fuchsia-800 text-white text-2xl w-full h-16 rounded-md hover:cursor-pointer">Send</button>
-		</form>
-		</div>
-	</div>
-	
-</section>
-<footer class="h-2/12 w-full bg-red-700 text-white flex justify-evenly items-center ps-32 pe-32">
-	<p class="w-1/2 text-start text-xl">margaux.kadi@gmail.com</p>
-	<p class="w-1/2 text-end text-xl">@margauxkadi</p>
-<footer/>
+
