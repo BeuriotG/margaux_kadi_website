@@ -18,12 +18,12 @@
     
     /* Global to the wesite */
     .img-rounded {
-        @apply rounded-4xl object-cover
+        @apply rounded-4xl object-contain
     }
 
     /* Home component */
     .nav-links  {
-        @apply uppercase hidden md:inline md:w-45 p-2 text-center text-pink-secondary md:border-t-2 md:border-b-2; 
+        @apply uppercase hidden md:inline md:w-45 p-2 text-center shrink-0 text-pink-secondary md:border-t-2 md:border-b-2; 
     }
 
     .text-outline-red {
@@ -44,11 +44,11 @@
     /* Contact component */
 
     .input-form {
-       @apply border-2 border-pink-secondary w-full h-16 rounded-md mb-5 md:mb-15;
+       @apply border-2 border-pink-secondary w-full h-16 p-2 rounded-md;
     }
 
     .text-area-form {
-        @apply border-2 border-pink-secondary w-full h-36 md:h-48 rounded-md mb-5 md:mb-15;
+        @apply border-2 border-pink-secondary w-full p-2 grow rounded-md;
     }
 
     .submit-button {
@@ -58,10 +58,10 @@
 
     /* WhoAmI component */
     .sub-title-whoami {
-        @apply text-3xl md:text-5xl text-pink-secondary;
+        @apply text-3xl md:text-4xl lg:text-5xl text-pink-secondary;
     }
 
     .p-whoami {
-        @apply md:text-2xl text-brown-primary;
+        @apply md:text-xl lg:text-2xl text-brown-primary;
     }
 }

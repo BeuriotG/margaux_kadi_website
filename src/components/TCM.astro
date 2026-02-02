@@ -3,13 +3,13 @@ import { Image } from "astro:assets";
 import TCM_logo from "../assets/icons/TCM.jpg"
 ---
 
-<section class="flex flex-col justify-center md:justify-start items-center gap-10 md:gap-32 w-full h-full p-5 bg-pink-tertiary text-beige-secondary">
+<section class="flex flex-col justify-start items-center gap-5 md:gap-32 w-full min-h-screen p-5 bg-pink-tertiary text-beige-secondary">
 	<h2 class="text-3xl md:text-8xl">La TCM</h2>
 	
 	<a href="https://www.chanteurmoderne.com/" class="md:w-1/4 md:h-1/5" target="_blank">
-		<Image src={TCM_logo} alt="Certification professionnelle Le Chanteur Moderne" class="img-rounded"/>
+		<Image src={TCM_logo} alt="Certification professionnelle Le Chanteur Moderne" class="img-rounded h-auto w-full max-w-64 md:max-w-80 m-auto"/>
 	</a>
-	<div class="flex flex-col gap-5 md:w-1/4 text-center ">
+	<div class="flex flex-col gap-5 md:w-1/2 text-center ">
 		<p class="text-2xl">"Jia Mari’s presence alone slows you down—in the best way. Her sessions helped me rebuild my sense of calm."</p>
 		<p class="text-2xl">Alec R., 
 			Program Participant</p>
