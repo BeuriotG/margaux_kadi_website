@@ -1,70 +1,130 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
+import facebook from "../assets/icons/Facebook_Logo_Primary.png";
+import instagram from "../assets/icons/Instagram_Glyph_Gradient.png";
+import logo from "../assets/icons/Site Web Logo.png";
+import { Image } from "astro:assets";
+import NavLinks from "../components/NavLinks.astro";
 ---
 
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi."/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta property="og:title" content="Site officiel de Margaux Kadi, professeure de technique vocale.">
-		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Margaux Kadi" >
-		<meta property="og:locale" content="fr_FR">
-		<meta property="og:description" content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi. Elle permet aux professionnels de la voix de s'améliorer et maîtriser au mieux leur appareil de travail.">
-		<title>Margaux Kadi</title>
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Margaux Kadi",
-			"givenName": "Margaux",
-			"familyName": "Kadi",
-			"jobTitle": "Coach vocale et professeure de technique vocale",
-			"image": "/images/Margaux_Kadi_portrait.jpg",
-			"sameAs": [
-			  "https://www.instagram.com/margauxkadilaurenson/"
-			],
-			"email": "margaux.kadi@gmail.com",
-			"makesOffer": [
-			  {
-				"@type": "Offer",
-				"itemOffered": {
-				  "@type": "Service",
-				  "name": "Cours particuliers de chant",
-				  "description": "Cours individuels de technique vocale"
-				}
-			  },
-			  {
-				"@type": "Offer",
-				"itemOffered": {
-				  "@type": "Service",
-				  "name": "Cours collectifs de chant"
-				}
-			  },
-			  {
-				"@type": "Offer",
-				"itemOffered": {
-				  "@type": "Service",
-				  "name": "Ateliers vocaux"
-				}
-			  }
-			]
-		  })} />
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="description"
+            content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi."
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://margauxkadi.com/" />
+        <meta name="generator" content={Astro.generator} />
+        <meta
+            property="og:title"
+            content="Site officiel de Margaux Kadi, professeure de technique vocale."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Margaux Kadi" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta
+            property="og:description"
+            content="Coach vocale et professeure de technique vocale. Site professionnel de Margaux Kadi. Elle permet aux professionnels de la voix de s'améliorer et maîtriser au mieux leur appareil de travail."
+        />
+        <title>
+            Margaux Kadi - Coach Vocale & Professeure de Technique Vocale
+        </title>
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: "Margaux Kadi",
+                givenName: "Margaux",
+                familyName: "Kadi",
+                jobTitle: "Coach vocale et professeure de technique vocale",
+                image: "/images/Margaux_Kadi_portrait.jpg",
+                sameAs: ["https://www.instagram.com/margauxkadilaurenson/"],
+                email: "margaux.kadi@gmail.com",
+                makesOffer: [
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "Cours particuliers de chant",
+                            description:
+                                "Cours individuels de technique vocale",
+                        },
+                    },
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "Cours collectifs de chant",
+                        },
+                    },
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "Ateliers vocaux",
+                        },
+                    },
+                ],
+            })}
+        />
+    </head>
+    <header class="flex justify-center md:justify-evenly items-center h-1/5">
+        <Image
+            src={logo}
+            alt="Logo signature Margaux Kadi"
+            class="h-auto w-full max-w-52 md:max-w-64"
+        />
+        <nav>
+            <NavLinks title="Qui je suis" link="#qui_je_suis" />
+            <NavLinks title="Les cours de chant" link="#les_cours_de_chant" />
+            <NavLinks title="Sur scène" link="#sur_scene" />
+            <NavLinks title="Contact" link="#contact" />
+        </nav>
+        <div class="flex justify-center items-start gap-3">
+            <a
+                href="https://www.instagram.com/margauxkadilaurenson/?hl=fr"
+                target="_blank"
+                ><Image
+                    src={instagram}
+                    width={60}
+                    height={60}
+                    alt="logo instagram"
+                /></a
+            >
+            <a href="" target="_blank"
+                ><Image
+                    src={facebook}
+                    width={60}
+                    height={60}
+                    alt="logo facebook"
+                /></a
+            >
+        </div>
+    </header>
+    <body>
+        <slot />
+    </body>
+    <footer
+        class="flex justify-center md:justify-evenly items-center h-2/12 w-full ps-5 md:ps-32 pe-5 md:pe-32 bg-red-secondary text-white"
+    >
+        <p class="w-1/2 text-start md:text-xl">margaux.kadi@gmail.com</p>
+        <p class="w-1/2 text-end md:text-xl">@margauxkadi</p>
+    </footer>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+
+</html>
