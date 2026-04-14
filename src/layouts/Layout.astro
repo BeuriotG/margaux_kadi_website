@@ -18,6 +18,12 @@ import NavLinks from "../components/NavLinks.astro";
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap"
+            rel="stylesheet"
+        />
         <link rel="canonical" href="https://margauxkadi.com/" />
         <meta name="generator" content={Astro.generator} />
         <meta
@@ -74,13 +80,15 @@ import NavLinks from "../components/NavLinks.astro";
             })}
         />
     </head>
-    <header class="flex justify-center md:justify-evenly items-center h-1/5">
+    <header
+        class="flex justify-center md:justify-evenly items-center md:h-1/5 w-4/5 m-auto"
+    >
         <Image
             src={logo}
             alt="Logo signature Margaux Kadi"
-            class="h-auto w-full max-w-52 md:max-w-64"
+            class="md:h-auto w-full max-w-52 md:max-w-64"
         />
-        <nav>
+        <nav class="flex justify-evenly w-4/5 m-3 p-2">
             <NavLinks title="Qui je suis" link="#qui_je_suis" />
             <NavLinks title="Les cours de chant" link="#les_cours_de_chant" />
             <NavLinks title="Sur scène" link="#sur_scene" />
