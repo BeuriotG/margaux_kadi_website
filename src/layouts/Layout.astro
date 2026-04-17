@@ -86,7 +86,7 @@ import NavLinks from "../components/NavLinks.astro";
         <Image
             src={logo}
             alt="Logo signature Margaux Kadi"
-            class="md:h-auto w-full max-w-52 md:max-w-64"
+            class="shrink-0 md:h-auto w-full min-w-28 max-w-52 md:max-w-64"
         />
         <nav class="flex justify-evenly w-4/5 m-3 p-2">
             <NavLinks title="Qui je suis" link="#qui_je_suis" />
@@ -94,7 +94,7 @@ import NavLinks from "../components/NavLinks.astro";
             <NavLinks title="Sur scène" link="#sur_scene" />
             <NavLinks title="Contact" link="#contact" />
         </nav>
-        <div class="flex justify-center items-start gap-3">
+        <div class="flex shrink-0 justify-center items-start gap-3 me-5">
             <a
                 href="https://www.instagram.com/margauxkadilaurenson/?hl=fr"
                 target="_blank"
@@ -126,6 +126,9 @@ import NavLinks from "../components/NavLinks.astro";
     </footer>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         html,
         body {
             margin: 0;

@@ -4,9 +4,9 @@ import TCM_logo from "../assets/icons/TCM.jpg";
 ---
 
 <section
-    class="flex flex-col justify-start items-center gap-5 md:gap-32 w-full min-h-screen p-5 bg-pink-tertiary text-beige-secondary"
+    class="flex flex-col justify-start items-center gap-5 md:gap-32 w-full md:min-h-screen p-5 bg-pink-tertiary text-beige-secondary"
 >
-    <h2 class="text-3xl md:text-8xl">La TCM</h2>
+    <h2 class="text-4xl md:text-6xl">La TCM</h2>
 
     <a
         href="https://www.chanteurmoderne.com/"
@@ -16,10 +16,12 @@ import TCM_logo from "../assets/icons/TCM.jpg";
         <Image
             src={TCM_logo}
             alt="Certification professionnelle Le Chanteur Moderne"
-            class="img-rounded h-auto w-full max-w-64 md:max-w-80 m-auto"
+            class="img-rounded h-auto w-full max-w-64 md:max-w-96 m-auto hover:scale-110 transition-transform duration-200 ease-in-out"
         />
     </a>
-    <div class="flex flex-col gap-5 md:w-1/2 text-center">
+    <div
+        class="flex flex-col gap-5 md:w-1/2 md:p-2 text-start md:text-center text-base md:text-xl"
+    >
         <p>
             La TCM est une approche fonctionnelle et rationnelle de la voix,
             basée sur les dernières sciences vocales. Elle s’appuie sur les

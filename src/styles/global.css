@@ -51,7 +51,7 @@
     }
 
     .submit-button {
-        @apply bg-pink-secondary text-white text-2xl w-full h-16 rounded-md hover:cursor-pointer;
+        @apply bg-pink-secondary text-white text-2xl w-full h-16 rounded-md hover:cursor-pointer hover:bg-pink-tertiary hover:scale-[1.02] active:scale-100 transition-all duration-200;
     }
 
     /* WhoAmI component */
@@ -65,11 +65,10 @@
 
     /*On stage component*/
     .img-onstage {
-        @apply h-auto w-full max-w-56 md:max-w-72 lg:max-w-80;
+        @apply h-auto w-full max-w-56 md:max-w-2xl lg:max-w-2xl;
     }
 
     .p-whoami {
-        @apply md:leading-9 font-young-serif;
-        font-size: clamp(0.875rem, 1.5vw, 1.5rem);
+        @apply text-base md:text-xl md:leading-9 font-young-serif;
     }
 }
