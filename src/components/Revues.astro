@@ -1,45 +1,168 @@
 ---
 import { Image } from "astro:assets";
 import mic from "../assets/images/mic.png";
+import reviews from "../data/reviews.json";
 ---
 
 <section
     class="flex flex-col items-center justify-around gap-8 md:gap-10 p-5 w-full md:min-h-screen bg-beige-tertiary"
 >
-    <h2 class="capitalize text-4xl md:text-6xl text-red-primary">Témoignages</h2>
-    <div class="flex flex-col items-center w-full max-w-xl">
-        <Image
-            src={mic}
-            alt="Image stylisé d'un microphone"
-            class="h-42 w-auto object-cover"
-        />
+    <h2 class="capitalize text-4xl md:text-6xl text-red-primary">
+        Témoignages
+    </h2>
+
+    <!-- Desktop : flèches sur les côtés | Mobile : layout empilé -->
+    <div class="flex flex-col items-center gap-3 md:gap-6 w-full">
+        <!-- Partie haute : flèche G (desktop) + ovale + flèche D (desktop) -->
         <div
-            class="flex justify-center items-center border-2 border-red-primary ovale"
+            class="flex items-center justify-center gap-2 md:gap-6 w-full md:w-auto"
         >
-            <p class="text-base md:text-lg text-center text-red-primary">
-                <i>["témoignages d'élèves"]</i>
-            </p>
+            <!-- Flèche gauche — visible uniquement sur desktop -->
+            <button
+                id="prev-review"
+                class="hidden md:block text-red-primary text-5xl hover:opacity-70 transition-opacity cursor-pointer select-none"
+                aria-label="Témoignage précédent"
+            >
+                ‹
+            </button>
+
+            <!-- Centre : micro + ovale -->
+            <div class="flex flex-col items-center w-full">
+                <Image
+                    src={mic}
+                    alt="Image stylisée d'un microphone"
+                    class="h-28 md:h-42 w-auto object-cover"
+                />
+
+                <!-- L'ovale -->
+                <div
+                    class="review-container relative overflow-hidden border-2 border-red-primary"
+                >
+                    {
+                        reviews.map((review, index) => (
+                            <div
+                                class="review-slide absolute inset-0 flex flex-col items-center justify-center text-center px-5 md:px-14 pt-4 pb-6 md:pt-20 md:pb-10 transition-opacity duration-500 w-full"
+                                style={`opacity: ${index === 0 ? "1" : "0"};`}
+                            >
+                                <blockquote class="text-xs md:text-sm text-red-primary leading-relaxed max-h-full">
+                                    «&nbsp;{review.text}&nbsp;»
+                                </blockquote>
+                                <cite class="not-italic font-bold text-red-secondary mt-2 md:mt-3 text-xs md:text-sm">
+                                    — {review.name}
+                                </cite>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Flèche droite — visible uniquement sur desktop -->
+            <button
+                id="next-review"
+                class="hidden md:block text-red-primary text-5xl hover:opacity-70 transition-opacity cursor-pointer select-none"
+                aria-label="Témoignage suivant"
+            >
+                ›
+            </button>
+        </div>
+
+        <!-- Flèches mobile + dots -->
+        <div class="flex items-center gap-5 md:gap-0">
+            <!-- Flèche gauche mobile -->
+            <button
+                id="prev-review-mobile"
+                class="md:hidden text-red-primary text-4xl hover:opacity-70 transition-opacity cursor-pointer select-none"
+                aria-label="Témoignage précédent"
+            >
+                ‹
+            </button>
+
+            <!-- Dots -->
+            <div id="review-dots" class="flex gap-3">
+                {
+                    reviews.map((_, index) => (
+                        <button
+                            class={`review-dot w-3 h-3 rounded-full border-2 border-red-primary transition-colors duration-300 ${index === 0 ? "bg-red-primary" : "bg-transparent"}`}
+                            data-index={index}
+                            aria-label={`Témoignage ${index + 1}`}
+                        />
+                    ))
+                }
+            </div>
+
+            <!-- Flèche droite mobile -->
+            <button
+                id="next-review-mobile"
+                class="md:hidden text-red-primary text-4xl hover:opacity-70 transition-opacity cursor-pointer select-none"
+                aria-label="Témoignage suivant"
+            >
+                ›
+            </button>
         </div>
     </div>
 </section>
 
-<style>
-    .ovale {
-        width: 480px;
-        height: 300px;
-        -webkit-border-radius: 240px / 150px;
-        -moz-border-radius: 240px / 150px;
-        border-radius: 240px / 150px;
+<script>
+    const slides = document.querySelectorAll(".review-slide");
+    const dots = document.querySelectorAll(".review-dot");
+    const prevBtns = document.querySelectorAll(
+        "#prev-review, #prev-review-mobile",
+    );
+    const nextBtns = document.querySelectorAll(
+        "#next-review, #next-review-mobile",
+    );
+    let current = 0;
+    const total = slides.length;
+
+    function showSlide(index: number) {
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+
+        slides.forEach((s, i) => {
+            (s as HTMLElement).style.opacity = i === index ? "1" : "0";
+        });
+        dots.forEach((d, i) => {
+            d.classList.toggle("bg-red-primary", i === index);
+            d.classList.toggle("bg-transparent", i !== index);
+        });
+        current = index;
     }
 
-    @media (width <= 600px) {
-        .ovale {
-            width: 16rem;
-            height: 10.7rem;
-            -webkit-border-radius: 8rem / 5.4rem;
-            -moz-border-radius: 8rem / 5.4rem;
-            border-radius: 8rem / 5.4rem;
+    prevBtns.forEach((btn) =>
+        btn?.addEventListener("click", () => showSlide(current - 1)),
+    );
+    nextBtns.forEach((btn) =>
+        btn?.addEventListener("click", () => showSlide(current + 1)),
+    );
+
+    dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+            const i = parseInt(dot.getAttribute("data-index") || "0");
+            showSlide(i);
+        });
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") showSlide(current - 1);
+        if (e.key === "ArrowRight") showSlide(current + 1);
+    });
+</script>
+
+<style>
+    .review-container {
+        width: 100%;
+        max-width: 20rem;
+        min-height: 16rem;
+        border-radius: 1rem;
+    }
+
+    @media (width >= 768px) {
+        .review-container {
+            width: 520px;
+            height: 400px;
+            max-width: unset;
+            min-height: unset;
+            border-radius: 260px / 200px;
         }
     }
 </style>
-<!-- <a href="https://www.flaticon.com/free-icons/mic" title="mic icons">Mic icons created by Icongeek26 - Flaticon</a> -->
