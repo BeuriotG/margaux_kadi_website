@@ -69,15 +69,11 @@
     }
 
     .p-whoami {
-        @apply md:text-xl lg:text-2xl text-brown-primary;
+        @apply md:text-xl lg:text-xl text-brown-primary;
     }
 
     /*On stage component*/
     .img-onstage {
-        @apply h-auto w-full max-w-56 md:max-w-2xl lg:max-w-2xl;
-    }
-
-    .p-whoami {
-        @apply text-base md:text-xl md:leading-9 font-young-serif;
+        @apply h-auto max-h-56 w-full max-w-xs object-cover;
     }
 }
