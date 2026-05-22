@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Letteria Pro Script";
+    src: url("/fonts/letteria-pro-script-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 @theme {
     --color-pink-primary: #b174b4;
     --color-pink-secondary: #7d3473;
@@ -11,6 +19,7 @@
     --color-beige-secondary: #faffe5;
     --color-beige-tertiary: #f8f1d3;
     --font-young-serif: "Young Serif", serif;
+    --font-letteria-script: "Letteria Pro Script", cursive;
 }
 
 @layer components {

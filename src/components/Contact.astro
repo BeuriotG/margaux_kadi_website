@@ -18,7 +18,9 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
         >
             Contact
         </h2>
-        <p class="text-center text-base md:text-xl text-brown-primary">
+        <p
+            class="text-center text-2xl md:text-5xl text-brown-primary font-letteria-script"
+        >
             <i
                 >Prise de rendez-vous/ Inscription Ateliers/ Devis/
                 Renseignements</i
@@ -87,7 +89,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
             <textarea
                 name="message"
                 id="message"
-                class="text-area-form resize-none overflow-hidden"
+                class="text-area-form resize-none max-h-48 md:max-h-80"
                 rows="3"
                 placeholder="Votre message..."
                 required></textarea>
@@ -98,8 +100,10 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
 <script>
     const textarea = document.getElementById("message") as HTMLTextAreaElement;
+    const maxHeight = parseInt(getComputedStyle(textarea).maxHeight);
     textarea.addEventListener("input", () => {
         textarea.style.height = "auto";
-        textarea.style.height = textarea.scrollHeight + "px";
+        textarea.style.height =
+            Math.min(textarea.scrollHeight, maxHeight) + "px";
     });
 </script>
