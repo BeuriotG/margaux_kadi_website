@@ -2,9 +2,17 @@
 import "../styles/global.css";
 import facebook from "../assets/icons/Facebook_Logo_Primary.png";
 import instagram from "../assets/icons/Instagram_Glyph_Gradient.png";
-import logo from "../assets/icons/Site Web Logo.png";
 import { Image } from "astro:assets";
 import NavLinks from "../components/NavLinks.astro";
+import BurgerMenu from "../components/BurgerMenu.astro";
+import logo from "../assets/icons/Site Web Logo.png";
+
+const navLinks = [
+    { title: "Qui je suis", link: "#qui_je_suis" },
+    { title: "Les cours de chant", link: "#les_cours_de_chant" },
+    { title: "La TCM", link: "#tcm" },
+    { title: "Contact", link: "#contact" },
+];
 ---
 
 <!doctype html>
@@ -21,7 +29,7 @@ import NavLinks from "../components/NavLinks.astro";
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap"
             rel="stylesheet"
         />
         <link rel="canonical" href="https://margauxkadi.com/" />
@@ -88,13 +96,15 @@ import NavLinks from "../components/NavLinks.astro";
             alt="Logo signature Margaux Kadi"
             class="shrink-0 md:h-auto w-full min-w-28 max-w-52 md:max-w-64"
         />
-        <nav class="flex justify-evenly w-4/5 m-3 p-2">
-            <NavLinks title="Qui je suis" link="#qui_je_suis" />
-            <NavLinks title="Les cours de chant" link="#les_cours_de_chant" />
-            <NavLinks title="La TCM" link="#tcm" />
-            <NavLinks title="Contact" link="#contact" />
+        <!-- Desktop nav (masqué sur mobile) -->
+        <nav class="hidden md:flex justify-evenly w-4/5 m-3 p-2">
+            {
+                navLinks.map((link) => (
+                    <NavLinks title={link.title} link={link.link} />
+                ))
+            }
         </nav>
-        <div class="flex shrink-0 justify-center items-start gap-3 me-5">
+        <div class="flex shrink-0 justify-center items-start gap-3 md:me-5">
             <a
                 href="https://www.instagram.com/margauxkadilaurenson/?hl=fr"
                 target="_blank"
@@ -105,7 +115,10 @@ import NavLinks from "../components/NavLinks.astro";
                     alt="logo instagram"
                 /></a
             >
-            <a href="" target="_blank"
+            <a
+                href="https://www.facebook.com/margaux.kadi.laurenson"
+                target="_blank"
+                class="hidden md:inline"
                 ><Image
                     src={facebook}
                     width={60}
@@ -114,16 +127,12 @@ import NavLinks from "../components/NavLinks.astro";
                 /></a
             >
         </div>
+        <!-- Burger menu (visible uniquement sur mobile, placé à droite des icônes sociales) -->
+        <BurgerMenu links={navLinks} />
     </header>
     <body>
         <slot />
     </body>
-    <footer
-        class="flex justify-center md:justify-evenly items-center h-2/12 w-full ps-5 md:ps-32 pe-5 md:pe-32 bg-red-secondary text-white"
-    >
-        <p class="w-1/2 text-start md:text-xl">margaux.kadi@gmail.com</p>
-        <p class="w-1/2 text-end md:text-xl">@margauxkadi</p>
-    </footer>
 
     <style>
         html {

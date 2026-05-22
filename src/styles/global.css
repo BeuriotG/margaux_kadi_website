@@ -18,7 +18,8 @@
     --color-beige-primary: #f9fdeb;
     --color-beige-secondary: #faffe5;
     --color-beige-tertiary: #f8f1d3;
-    --font-young-serif: "Young Serif", serif;
+    --font-heading: "Lora", serif;
+    --font-body: "Quicksand", sans-serif;
     --font-letteria-script: "Letteria Pro Script", cursive;
 }
 
@@ -30,7 +31,7 @@
 
     /* Home component */
     .nav-links {
-        @apply uppercase hidden md:inline md:w-45 p-2 text-center shrink-0 text-pink-secondary md:border-t-2 md:border-b-2;
+        @apply uppercase hidden md:inline-flex md:items-center md:justify-center md:w-45 p-2 text-center shrink-0 text-pink-secondary md:border-t-2 md:border-b-2;
     }
 
     .text-outline-red {
@@ -75,5 +76,19 @@
     /*On stage component*/
     .img-onstage {
         @apply h-auto max-h-56 w-full max-w-xs object-cover;
+    }
+}
+
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+    }
+    body {
+        font-family: var(--font-body);
     }
 }

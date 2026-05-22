@@ -1,0 +1,112 @@
+---
+interface Link {
+    title: string;
+    link: string;
+}
+
+interface Props {
+    links: Link[];
+}
+
+const { links } = Astro.props;
+---
+
+<!-- Bouton hamburger -->
+<button
+    id="burger-btn"
+    class="md:hidden relative z-50 flex flex-col justify-center items-center gap-1.5 w-10 h-10 p-2"
+    aria-label="Menu de navigation"
+    aria-expanded="false"
+>
+    <span
+        id="bar-1"
+        class="block w-6 h-0.5 bg-pink-secondary transition-all duration-300 origin-center"
+    ></span>
+    <span
+        id="bar-2"
+        class="block w-6 h-0.5 bg-pink-secondary transition-all duration-300"
+    ></span>
+    <span
+        id="bar-3"
+        class="block w-6 h-0.5 bg-pink-secondary transition-all duration-300 origin-center"
+    ></span>
+</button>
+
+<!-- Overlay semi-transparent -->
+<div
+    id="burger-overlay"
+    class="fixed inset-0 bg-black/50 z-40 hidden"
+    aria-hidden="true"
+></div>
+
+<!-- Panneau du menu -->
+<nav
+    id="burger-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-beige-primary z-40 translate-x-full transition-transform duration-300 ease-in-out shadow-xl"
+    aria-hidden="true"
+>
+    <div class="flex flex-col gap-4 pt-20 px-6">
+        {links.map((link) => (
+            <a
+                href={link.link}
+                class="burger-link text-xl text-pink-secondary uppercase py-2 border-b border-pink-secondary/30"
+            >
+                {link.title}
+            </a>
+        ))}
+    </div>
+</nav>
+
+<script>
+    const btn = document.getElementById("burger-btn") as HTMLButtonElement;
+    const menu = document.getElementById("burger-menu") as HTMLElement;
+    const overlay = document.getElementById("burger-overlay") as HTMLElement;
+    const bar1 = document.getElementById("bar-1") as HTMLElement;
+    const bar2 = document.getElementById("bar-2") as HTMLElement;
+    const bar3 = document.getElementById("bar-3") as HTMLElement;
+    const navLinks = menu.querySelectorAll(".burger-link");
+
+    function open() {
+        menu.classList.remove("translate-x-full");
+        overlay.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        menu.setAttribute("aria-hidden", "false");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        // Animation barres → croix
+        bar1.style.transform = "rotate(45deg) translate(5px, 5px)";
+        bar2.style.opacity = "0";
+        bar3.style.transform = "rotate(-45deg) translate(5px, -5px)";
+        btn.focus();
+    }
+
+    function close() {
+        menu.classList.add("translate-x-full");
+        overlay.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+        menu.setAttribute("aria-hidden", "true");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        // Reset barres
+        bar1.style.transform = "";
+        bar2.style.opacity = "";
+        bar3.style.transform = "";
+    }
+
+    btn.addEventListener("click", () => {
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        isOpen ? close() : open();
+    });
+
+    overlay.addEventListener("click", close);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+            close();
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", close);
+    });
+</script>

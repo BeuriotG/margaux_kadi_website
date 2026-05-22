@@ -5,31 +5,31 @@ import TCM from "../assets/icons/TCM.jpg";
 ---
 
 <section
-    class="flex flex-col justify-start gap-0 md:gap-2 md:min-h-fit w-full mx-auto p-2 md:p-5"
+    class="flex flex-col md:flex-row justify-center items-stretch gap-4 md:gap-8 min-h-9/12 w-full mx-auto p-2 md:px-5"
 >
-    <article
-        class="flex flex-col md:flex-row md:justify-end items-center gap-2 h-full md:p-5"
-    >
+    <!-- Colonne gauche : Portrait -->
+    <div class="flex justify-center items-center md:flex-1 overflow-hidden">
         <Image
             src={portrait}
             alt="Portrait de Margaux Kadi"
-            class="img-rounded h-auto max-w-full md:max-w-1/3 m-auto"
+            class="img-rounded w-full md:w-3/4 h-full object-cover"
         />
+    </div>
 
-        <div
-            class="flex flex-col justify-center items-end h-full w-full md:h-auto md:w-2xl m-auto me-2 p-3"
-        >
-            <h1 class="capitalize text-home-page text-outline-red">
-                <i>Margaux Kadi</i>
-            </h1>
-            <h3 class="uppercase text-home-page text-outline-pink">
-                Coach vocale & professeure de technique vocale
-            </h3>
-        </div>
-    </article>
-    <Image
-        src={TCM}
-        alt={"Certification professionnelle Le Chanteur Moderne"}
-        class="mx-auto md:mx-0 h-auto max-w-1/2 md:h-auto md:w-1/3 md:self-end"
-    />
+    <!-- Colonne droite : Titre + Logo TCM -->
+    <div
+        class="flex flex-col justify-center items-end md:items-end gap-6 md:flex-1"
+    >
+        <h1 class="capitalize text-home-page text-outline-red">
+            <i>Margaux Kadi<br />Laurenson</i>
+        </h1>
+        <h3 class="uppercase text-home-page text-outline-pink">
+            Coach vocale & professeure de technique vocale
+        </h3>
+        <Image
+            src={TCM}
+            alt="Certification professionnelle Le Chanteur Moderne"
+            class="h-auto max-w-1/2 md:max-w-64"
+        />
+    </div>
 </section>
